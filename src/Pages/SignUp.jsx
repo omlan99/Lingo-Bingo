@@ -1,11 +1,13 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
-
+import { FcGoogle } from "react-icons/fc";
 const SignUp = () => {
-  const { createUser, updateUser, setUser } = useContext(AuthContext);
+  const { createUser, updateUser, setUser, googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
-
+  const handleGoogle = () => {
+    googleSignIn()
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -13,7 +15,7 @@ const SignUp = () => {
     const email = form.email.value;
     const photo = form.photo.value;
     const password = form.password.value;
-    
+
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
@@ -129,7 +131,14 @@ const SignUp = () => {
               </button>
             </div>
           </form>
-
+          <div className="my-4">
+            <button
+              onClick={handleGoogle}
+              className="btn btn-wide bg-white border-gray-500 text-xl font-medium w-full"
+            >
+              <FcGoogle /> Google
+            </button>
+          </div>
           <p class="mt-10 text-center text-sm/6 text-gray-500">
             Already have an account.
             <Link
