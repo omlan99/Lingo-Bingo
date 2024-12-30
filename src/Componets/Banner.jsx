@@ -1,19 +1,43 @@
 import React from "react";
-import BannerImg from "../assets/busuu-header-hello.png"
-
+import img1 from "../assets/blackboard.jpg";
+import img2 from "../assets/learing in lamp.jpg";
+import img3 from "../assets/Pencil & eraser.jpg";
+import img4 from "../assets/represent.jpg";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import 'swiper/css/pagination';
+import { Navigation, Pagination } from "swiper/modules";
 const Banner = () => {
   return (
-  <div className="flex bg-[#2D5AEC] text-white">
-    <div className="w-4/5 p-16 ">
-        <h1 className="text-4xl mb-4 font-extrabold text-left">New language, new <br /> opportunities, new  <br /> you</h1>
-         <p className="text-xl max-w-md mb-8">Get access to compact lessons from the experts and connect with a community of native speakers to help you master words faster.</p>
+    <div className="">
+      <Swiper
+      
+      slidesPerView={1}
+      spaceBetween={30}
+      loop={true}
+      navigation={{clickable : true}}
+      pagination={{
+        clickable: true,
+      }}
+      modules={[Pagination, Navigation]}
+      className="mySwiper"
+      >
+        <SwiperSlide >
+          <img src={img1} alt="" className="mx-auto" />{" "}
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={img2} alt="" className="mx-auto" />{" "}
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={img3} alt="" className="mx-auto"/>{" "}
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={img4} alt="" className="mx-auto"/>{" "}
+        </SwiperSlide>
+      </Swiper>
     </div>
-    <div>
-      <img src={BannerImg} alt="" />
-    </div>
-
-  </div>
-);
+  );
 };
 
 export default Banner;
