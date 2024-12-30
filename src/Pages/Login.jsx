@@ -1,9 +1,26 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 
 const Login = () => {
-    // const {signInUser} = useContext(AuthContext)
+    const {user, signInUser} = useContext(AuthContext)
+    const navigate = useNavigate()
+ 
+    const handleLogin = (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const email = form.email.value;
+      const password = form.password.value;
+      console.log(email, password);
+      signInUser(email, password)
+      .then(result =>{
+        console.log(result.user)
+         navigate('/')
+      })
+      .catch(error =>{
+        console.log(error.message)
+      })
+    };
 
   return (
     <div>
@@ -20,7 +37,7 @@ const Login = () => {
         </div>
 
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form class="space-y-6" action="#" method="POST">
+          <form class="space-y-6" onSubmit={handleLogin}>
             <div>
               <label
                 for="email"

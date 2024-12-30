@@ -1,7 +1,36 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Context/AuthProvider";
 
 const SignUp = () => {
+  const { createUser, updateUser, setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const photo = form.photo.value;
+    const password = form.password.value;
+
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        setUser(result.user);
+        updateUser({ displayName: name, photoURL: photo })
+          .then(() => {
+            navigate("/");
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
   return (
     <div>
       <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
@@ -17,8 +46,8 @@ const SignUp = () => {
         </div>
 
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form class="space-y-6" >
-          <div>
+          <form class="space-y-6" onSubmit={handleSubmit}>
+            <div>
               <label
                 for="email"
                 class="block text-sm/6 font-medium text-gray-900"
@@ -29,14 +58,12 @@ const SignUp = () => {
                 <input
                   type="text"
                   name="name"
-                //   id="email"
-                //   autocomplete="email"
                   required
                   class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
               </div>
             </div>
-            
+
             <div>
               <label
                 for="email"
@@ -48,9 +75,6 @@ const SignUp = () => {
                 <input
                   type="url"
                   name="photo"
-                //   id="email"
-                //   autocomplete="email"
-                  required
                   class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
               </div>
@@ -83,7 +107,6 @@ const SignUp = () => {
                 >
                   Password
                 </label>
-             
               </div>
               <div class="mt-2">
                 <input
@@ -110,10 +133,10 @@ const SignUp = () => {
           <p class="mt-10 text-center text-sm/6 text-gray-500">
             Already have an account.
             <Link
-              to={'/login'}
+              to={"/login"}
               class="font-semibold text-indigo-600 hover:text-indigo-500 ml-2"
             >
-             Login Here
+              Login Here
             </Link>
           </p>
         </div>
