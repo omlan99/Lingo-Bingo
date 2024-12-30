@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
-
+import { FcGoogle } from "react-icons/fc";
 const Login = () => {
-    const {user, signInUser} = useContext(AuthContext)
+    const {user, signInUser, googleSignIn} = useContext(AuthContext)
     const navigate = useNavigate()
- 
+    const handleGoogle = () => {
+        googleSignIn()
+      }
     const handleLogin = (e) => {
       e.preventDefault();
       const form = e.target;
@@ -95,7 +97,9 @@ const Login = () => {
               </button>
             </div>
           </form>
-
+          <div className='my-4' >
+            <button onClick={handleGoogle} className="btn btn-wide bg-white border-gray-500 text-xl font-medium w-full"><FcGoogle /> Google</button>
+          </div>
           <p class="mt-10 text-center text-sm/6 text-gray-500">
             Not a member? 
             <Link
