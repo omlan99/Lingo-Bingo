@@ -70,10 +70,6 @@ const Navbar = () => {
           </>
         ) : (
           <>
-            {" "}
-            <Link to={"signup"}>
-              <button className="btn ">Registration</button>
-            </Link>
             <Link to={"login"}>
               <button className="btn">Login</button>
             </Link>
