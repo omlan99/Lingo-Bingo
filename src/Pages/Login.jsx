@@ -7,6 +7,7 @@ const Login = () => {
     const navigate = useNavigate()
     const handleGoogle = () => {
         googleSignIn()
+        navigate("/");
       }
     const handleLogin = (e) => {
       e.preventDefault();
