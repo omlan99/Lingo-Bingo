@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 const Login = () => {
   const { signInUser, googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const emailRef = useRef()
   const handleGoogle = async () => {
    await googleSignIn();
     navigate('/')
@@ -29,7 +30,10 @@ const Login = () => {
         });
       });
   };
-
+  const handleForget = () => {
+    const email = emailRef.current?.value;
+    navigate('/forgetPassword', {state : {email}})
+  }
   return (
     <div>
       <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
@@ -55,6 +59,7 @@ const Login = () => {
               </label>
               <div class="mt-2">
                 <input
+                  ref={emailRef}
                   type="email"
                   name="email"
                   id="email"
@@ -74,13 +79,14 @@ const Login = () => {
                   Password
                 </label>
                 <div class="text-sm">
-                  <a
-                    href="#"
+                  <button
+
+                   onClick={handleForget}
                     class="font-semibold text-indigo-600 hover:text-indigo-500"
                   >
                     Forgot password?
-                  </a>
-                </div>
+                  </button>
+                </div>  
               </div>
               <div class="mt-2">
                 <input
@@ -106,7 +112,7 @@ const Login = () => {
           <div className="my-4">
             <button
               onClick={handleGoogle}
-              className="btn btn-wide bg-white border-gray-500 text-xl font-medium w-full"
+              className="btn  bg-white border-gray-500 text-xl font-medium w-full"
             >
               <FcGoogle /> Google
             </button>

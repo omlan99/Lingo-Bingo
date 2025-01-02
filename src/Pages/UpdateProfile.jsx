@@ -1,22 +1,20 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../Context/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const UpdateProfile = () => {
   const { updateUser } = useContext(AuthContext);
   const navigate = useNavigate()
-  const handleUpdate = (e) => {
+  const handleUpdate = async(e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
     const photo = form.photo.value
       updateUser({ displayName: name, photoURL: photo })
-      .then(() => {
-        navigate("/profile");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+   
+    toast.success('Profile info updated', {position : "top-center"})
+          navigate("/profile");
   };
   return (
     <div className="max-w-xl mx-auto">
@@ -42,7 +40,7 @@ const UpdateProfile = () => {
             type="url"
             placeholder="Eeter link of the photo"
             className="input input-bordered"
-            required
+            
           />
         </div>
         <div className="form-control mt-6">

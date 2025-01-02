@@ -8,6 +8,7 @@ import Tutorial from "../Pages/Tutorial";
 import PrivateRoute from "./PrivateRoute";
 import Profile from "../Pages/Profile";
 import UpdateProfile from "../Pages/UpdateProfile";
+import ForgetPass from "../Pages/ForgetPass";
 
 const router = createBrowserRouter([
     {
@@ -38,7 +39,12 @@ const router = createBrowserRouter([
             {
                 path : "updateProfile",
                 element : <UpdateProfile></UpdateProfile>
+            },
+            {
+                path : 'ForgetPassword',
+                element : <ForgetPass></ForgetPass>
             }
+
         ]
     }
 ])
