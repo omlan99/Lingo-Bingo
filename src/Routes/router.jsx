@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import Profile from "../Pages/Profile";
 import UpdateProfile from "../Pages/UpdateProfile";
 import ForgetPass from "../Pages/ForgetPass";
+import LearningPage from "../Pages/LearningPage";
 
 const router = createBrowserRouter([
     {
@@ -43,6 +44,11 @@ const router = createBrowserRouter([
             {
                 path : 'ForgetPassword',
                 element : <ForgetPass></ForgetPass>
+            },
+            {
+                path : 'learningPage',
+                element : <LearningPage></LearningPage>,
+               
             }
 
         ]

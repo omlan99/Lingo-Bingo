@@ -8,7 +8,7 @@ const links = (
       <Link to={'/'}>Home</Link>
     </li>
     <li>
-      <Link>Start-Learning</Link>
+      <Link to={'/learningPage'}>Start Learning</Link>
     </li>
     <li>
       <Link to={'/tutorial'}>Tutorials</Link>
