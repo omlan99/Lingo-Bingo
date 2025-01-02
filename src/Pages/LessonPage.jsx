@@ -20,7 +20,7 @@ const LessonPage = () => {
       <h2 className="text-3xl p-8 text-center font-bold ">
         Let's Learn Japanesse
       </h2>
-      <div className="cards-wrapper">
+      <div>
         {lessons.map((lesson) => (
           <div
             className="space-y-4 my-6 cursor-pointer"

@@ -50,6 +50,11 @@ const router = createBrowserRouter([
                 path : 'lessonPage',
                 element : <LessonPage></LessonPage>,
                
+            },
+            {
+                path : 'lesson/:no',
+                element : <LearningPage></LearningPage>,
+                loader : () => fetch('../../public/Vocabullary.json')
             }
 
         ]
