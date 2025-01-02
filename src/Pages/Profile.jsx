@@ -26,7 +26,7 @@ const Profile = () => {
         </div>
             </div>
         <div className="flex justify-center py-3">
-        <Link to={'/updateProfile'} className="btn btn-wide text-center bg-blue-400 text-white">Update</Link >
+        <Link to={'/updateProfile'} className="btn btn-wide text-center btn-info text-white">Update</Link >
         </div>
       </div>
     </div>
