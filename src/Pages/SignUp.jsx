@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
+import { toast } from "react-toastify";
+import { FaRegEyeSlash } from "react-icons/fa";
 const SignUp = () => {
   const { createUser, updateUser, setUser, googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -9,6 +11,12 @@ const SignUp = () => {
     googleSignIn()
     navigate("/");
   }
+
+  const validatePassword = (password) => {
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+    return passwordRegex.test(password);
+  };
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -16,7 +24,9 @@ const SignUp = () => {
     const email = form.email.value;
     const photo = form.photo.value;
     const password = form.password.value;
-
+    if (!validatePassword(password)) {
+        return toast.error("Password must have at least 6 characters, including uppercase and lowercase.", {position : "top-center"});
+      }
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
@@ -26,10 +36,11 @@ const SignUp = () => {
             navigate("/");
           })
           .catch((err) => {
-            console.log(err);
-          });
-      })
-      .catch((error) => {
+              console.log(err);
+            });
+        })
+        .catch((error) => {
+          toast.error('You already have an account, Please Login', {position:'top-center'})
         console.log(error.message);
       });
   };
@@ -111,7 +122,7 @@ const SignUp = () => {
                   Password
                 </label>
               </div>
-              <div class="mt-2">
+              <div class="mt-2 relative">
                 <input
                   type="password"
                   name="password"
@@ -120,6 +131,7 @@ const SignUp = () => {
                   required
                   class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
+                {/* <FaRegEyeSlash className="-top-6" /> */}
               </div>
             </div>
 

@@ -1,30 +1,31 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
-import Logo from  "../assets/icons8-user-30.png"
+
 const links = (
   <>
     <li>
-      <Link>Home</Link>
+      <Link to={'/'}>Home</Link>
     </li>
     <li>
       <Link>Start-Learning</Link>
     </li>
     <li>
-      <Link>Tutorials</Link>
+      <Link to={'/tutorial'}>Tutorials</Link>
     </li>
     <li>
       <Link>About Us</Link>
     </li>
-    <li>
-      <Link>My Profile</Link>
-    </li>
+   
   </>
 );
 const Navbar = () => {
-  const { user, signOutUser} = useContext(AuthContext);
+  const { user, signOutUser } = useContext(AuthContext);
+
   return (
-    <div className="navbar bg-base-100">
+    <div >
+      
+         <div className="navbar bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -48,12 +49,25 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             {links}
+            <li>
+            {
+              user && <li><Link>My Profile</Link></li>
+            }
+            </li>
+              
           </ul>
         </div>
         <a className="btn btn-ghost text-xl">daisyUI</a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 space-x-3">{links}</ul>
+        <ul className="menu menu-horizontal px-1 space-x-3">
+          {links}
+      
+            {
+              user && <li><Link  to={'/profile'}>My Profile</Link></li>
+            }
+           
+          </ul>
       </div>
       <div className="navbar-end space-x-4">
         {user ? (
@@ -61,7 +75,8 @@ const Navbar = () => {
             {/* {" "} */}
             <div className="avatar">
               <div className="w-10 rounded-full">
-                {user.photoURL ? (<img src={user.photoURL} />) : (<img src = {Logo}/>)}
+                <img src={user.photoURL} alt="" />
+             
               </div>
             </div>
             <Link to="/login" onClick={signOutUser} className="btn">
@@ -76,6 +91,11 @@ const Navbar = () => {
           </>
         )}
       </div>
+      
+    </div>
+
+
+ 
     </div>
   );
 };

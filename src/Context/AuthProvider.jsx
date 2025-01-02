@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getRedirectResult, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signInWithRedirect, signOut, updateProfile } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { createContext } from "react";
 import auth from '../Firebase/Firebase.init';
@@ -18,6 +18,17 @@ const AuthProvider = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password);
     };  
     const googleSignIn = () => {
+        // signInWithRedirect(auth, googleProvider)
+        // getRedirectResult(auth)
+        // .then(result => {
+        //     const caredential = GoogleAuthProvider.credentialFromResult(result);
+        //     const token  = caredential.accessToken
+        //     const user = result.user;
+
+        // })
+        // .catch(error =>{
+        //     const errorMessage = error
+        // })
         return signInWithPopup(auth, googleProvider);
       };
 

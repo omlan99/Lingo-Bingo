@@ -2,28 +2,33 @@ import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
+import { toast } from "react-toastify";
 const Login = () => {
-    const {user, signInUser, googleSignIn} = useContext(AuthContext)
-    const navigate = useNavigate()
-    const handleGoogle = () => {
-        googleSignIn()
+  const { signInUser, googleSignIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const handleGoogle = async () => {
+   await googleSignIn();
+    navigate('/')
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+    signInUser(email, password)
+      .then((result) => {
+        console.log(result.user);
         navigate("/");
-      }
-    const handleLogin = (e) => {
-      e.preventDefault();
-      const form = e.target;
-      const email = form.email.value;
-      const password = form.password.value;
-      console.log(email, password);
-      signInUser(email, password)
-      .then(result =>{
-        console.log(result.user)
-         navigate('/')
       })
-      .catch(error =>{
-        console.log(error.message)
-      })
-    };
+      .catch((error) => {
+        // console.log(error.message);
+        toast.error("Email and Password did not mathced", {
+          position: "top-center",
+        });
+      });
+  };
 
   return (
     <div>
@@ -94,21 +99,25 @@ const Login = () => {
                 type="submit"
                 class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-               Login
+                Login
               </button>
             </div>
           </form>
-          <div className='my-4' >
-            <button onClick={handleGoogle} className="btn btn-wide bg-white border-gray-500 text-xl font-medium w-full"><FcGoogle /> Google</button>
+          <div className="my-4">
+            <button
+              onClick={handleGoogle}
+              className="btn btn-wide bg-white border-gray-500 text-xl font-medium w-full"
+            >
+              <FcGoogle /> Google
+            </button>
           </div>
           <p class="mt-10 text-center text-sm/6 text-gray-500">
-            Not a member? 
+            Not a member?
             <Link
-
-              to={'/signup'}
+              to={"/signup"}
               class="font-semibold text-indigo-600 hover:text-indigo-500 ml-2"
             >
-             Create a new account.
+              Create a new account.
             </Link>
           </p>
         </div>
