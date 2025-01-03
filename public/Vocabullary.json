@@ -93,7 +93,7 @@
         "pronunciation": "gakkou",
         "meaning": "School",
         "part_of_speech": "noun",
-        "difficulty": "medium",
+        "difficulty": "hard",
         "lesson_no": 2,
         "when_to_say": "Used when talking about educational institutions.",
         "example": "学校に行きます。 (I go to school.)"
@@ -148,7 +148,7 @@
         "pronunciation": "ji-kan",
         "meaning": "Time",
         "part_of_speech": "noun",
-        "difficulty": "medium",
+        "difficulty": "hard",
         "lesson_no": 3,
         "when_to_say": "Used when referring to time.",
         "example": "時間がありますか？ (Do you have time?)"
@@ -214,7 +214,7 @@
         "pronunciation": "ha-na-su",
         "meaning": "To speak",
         "part_of_speech": "verb",
-        "difficulty": "medium",
+        "difficulty": "hard",
         "lesson_no": 4,
         "when_to_say": "Used when referring to talking or speaking.",
         "example": "日本語を話します。 (I speak Japanese.)"
@@ -292,7 +292,7 @@
         "pronunciation": "oyo-gu",
         "meaning": "To swim",
         "part_of_speech": "verb",
-        "difficulty": "medium",
+        "difficulty": "hard",
         "lesson_no": 6,
         "when_to_say": "Used when talking about swimming.",
         "example": "プールで泳ぎます。 (I swim in the pool.)"
@@ -325,7 +325,7 @@
         "pronunciation": "yo-mu",
         "meaning": "To read",
         "part_of_speech": "verb",
-        "difficulty": "medium",
+        "difficulty": "hard",
         "lesson_no": 6,
         "when_to_say": "Used when talking about reading.",
         "example": "本を読みます。 (I read a book.)"
@@ -424,7 +424,7 @@
         "pronunciation": "i-so-ga-shii",
         "meaning": "Busy",
         "part_of_speech": "adjective",
-        "difficulty": "medium",
+        "difficulty": "hard",
         "lesson_no": 8,
         "when_to_say": "Used to describe being busy.",
         "example": "今週は忙しいです。 (This week is busy.)"
@@ -457,7 +457,7 @@
         "pronunciation": "ben-kyou",
         "meaning": "Study",
         "part_of_speech": "noun",
-        "difficulty": "easy",
+        "difficulty": "hard",
         "lesson_no": 9,
         "when_to_say": "Used when referring to studying.",
         "example": "勉強が大切です。 (Studying is important.)"
@@ -468,7 +468,7 @@
         "pronunciation": "o-mo-shi-ro-i",
         "meaning": "Interesting",
         "part_of_speech": "adjective",
-        "difficulty": "medium",
+        "difficulty": "hard",
         "lesson_no": 9,
         "when_to_say": "Used to describe something interesting or funny.",
         "example": "この本は面白いです。 (This book is interesting.)"
@@ -534,7 +534,7 @@
         "pronunciation": "mu-zu-ka-shii",
         "meaning": "Difficult",
         "part_of_speech": "adjective",
-        "difficulty": "medium",
+        "difficulty": "hard",
         "lesson_no": 10,
         "when_to_say": "Used to describe something hard or challenging.",
         "example": "このテストは難しいです。 (This test is difficult.)"

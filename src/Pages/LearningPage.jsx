@@ -27,7 +27,7 @@ const LearningPage = () => {
       </h2>
       <div className="grid lg:grid-cols-3 gap-5 my-5 ">
         {filteredWords.map((word, index) => (
-          <div key={index} className=" border border-indigo-100 rounded-xl p-5" onClick={() => {pronounceWord(word.word)}}>
+          <div key={index} className={ `border border-indigo-100 rounded-xl p-5 ${word.difficulty === 'easy' ? 'bg-green-400' : word.difficulty=== 'medium' ?  'bg-orange-400' : 'bg-red-500'}`} onClick={() => {pronounceWord(word.word)}}>
             <p>
               <span className="font-semibold">Word </span>: {word.word}
             </p>
@@ -48,7 +48,7 @@ const LearningPage = () => {
             </p>
             <button
               className=" btn btn-warning w-full my-4"
-            //   onClick={() => }
+      
             onClick={() => handleSay(word.id)}
             >
               When to say
@@ -61,7 +61,6 @@ const LearningPage = () => {
           Back To Lesson
         </Link>
         </div>
-      {/* Open the modal using document.getElementById('ID').showModal() method */}
         {
             showWord && (
                 <dialog id="my_modal_1" className="modal">
