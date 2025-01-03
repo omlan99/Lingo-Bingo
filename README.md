@@ -21,7 +21,7 @@
 
 ## 📚 Tech Stack
 - **Frontend**: React.js, React Router, Axios
-- **Styling**: Tailwind CSS, AOS for animations
+- **Styling**: Tailwind CSS, Animate.css for animations
 - **Authentication**: Firebase Authentication
 - **Database**: Firebase Realtime Database
 - **Hosting**: Netlify / Firebase Hosting
