@@ -4,13 +4,18 @@ import { AuthContext } from '../Context/AuthProvider';
 
 const ForgetPass = () => {
     const location = useLocation()
+    console.log(location)
     const {resetPassword} = useContext(AuthContext)
     const email =location.state?.email || ''
     const handleReset = e => {
         e.preventDefault();
         const email = e.target.email.value
         resetPassword(email)
-        window.location.href = "https://mail.google.com/"
+        .then(() => {
+          window.location.href = "https://mail.google.com/";
+        })
+        .catch((err) => console.error(err));
+       
     }
     return (
         <div className="max-w-xl mx-auto">

@@ -11,10 +11,13 @@ const UpdateProfile = () => {
     const form = e.target;
     const name = form.name.value;
     const photo = form.photo.value
-      updateUser({ displayName: name, photoURL: photo })
-   
+     await updateUser({ displayName: name, photoURL: photo })
+    .then()
+    .catch(error => {
+      console.log(error.message)
+    })
     toast.success('Profile info updated', {position : "top-center"})
-          navigate("/profile");
+      navigate("/profile");
   };
   return (
     <div className="max-w-xl mx-auto">
@@ -38,7 +41,7 @@ const UpdateProfile = () => {
           <input
             name="photo"
             type="url"
-            placeholder="Eeter link of the photo"
+            placeholder="Enter link of the photo"
             className="input input-bordered"
             
           />

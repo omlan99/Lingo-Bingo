@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 
 const links = (
@@ -13,13 +13,15 @@ const links = (
     <li>
       <Link to={'/tutorial'}>Tutorials</Link>
     </li>
-    <li>
-      <Link>About Us</Link>
-    </li>
+  
    
   </>
 );
 const Navbar = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/login', {replace : true, state : null})
+  }
   const { user, signOutUser } = useContext(AuthContext);
 
   return (
@@ -51,7 +53,7 @@ const Navbar = () => {
             {links}
             <li>
             {
-              user && <li><Link>My Profile</Link></li>
+              user && <li><Link to={'/profile'}>My Profile</Link></li>
             }
             </li>
               
@@ -85,9 +87,9 @@ const Navbar = () => {
           </>
         ) : (
           <>
-            <Link to={"login"}>
-              <button className="btn">Login</button>
-            </Link>
+            {/* <Link to={"login"}> */}
+              <button className="btn" onClick={handleClick}>Login</button>
+            {/* </Link> */}
           </>
         )}
       </div>

@@ -53,7 +53,7 @@ const router = createBrowserRouter([
             },
             {
                 path : 'lesson/:no',
-                element : <LearningPage></LearningPage>,
+                element : <PrivateRoute><LearningPage></LearningPage></PrivateRoute>,
                 loader : () => fetch('../../public/Vocabullary.json')
             }
 

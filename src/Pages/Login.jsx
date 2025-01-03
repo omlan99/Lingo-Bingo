@@ -1,9 +1,11 @@
-import React, { useContext, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useContext, useEffect, useRef } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-toastify";
 const Login = () => {
+  const location = useLocation();
+  console.log(location)
   const { signInUser, googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const emailRef = useRef()
@@ -11,6 +13,11 @@ const Login = () => {
    await googleSignIn();
     navigate('/')
   };
+ useEffect(() => {
+  if (location.state?.email) {
+    navigate(location.pathname, { replace: true, state: null });
+  }
+}, [location, navigate]);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -21,7 +28,10 @@ const Login = () => {
     signInUser(email, password)
       .then((result) => {
         console.log(result.user);
-        navigate("/");
+        toast.success("Login Successfull", {
+          position: "top-center",
+        })
+        navigate("/", { replace: true, state: null });
       })
       .catch((error) => {
         // console.log(error.message);

@@ -34,6 +34,7 @@ const SignUp = () => {
         updateUser({ displayName: name, photoURL: photo })
           .then(() => {
             navigate("/");
+            toast.success(`${name} created a new account`, {position : 'top-center'})
           })
           .catch((err) => {
               console.log(err);

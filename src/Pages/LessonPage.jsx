@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Context/AuthProvider";
 
 const LessonPage = () => {
+  const {user} = useContext(AuthContext)
   const navigate = useNavigate();
   const lessons = [
     { id: 1, title: "Lesson 1" },
@@ -17,7 +19,7 @@ const LessonPage = () => {
   ];
   return (
     <div>
-      <h2 className="text-3xl p-8 text-center font-bold ">
+      <h2 className="text-3xl p-8 text-center font-bold animate__animated  animate__bounce">
         Let's Learn Japanesse
       </h2>
       <div>
@@ -25,7 +27,7 @@ const LessonPage = () => {
           <div
             className="space-y-4 my-6 cursor-pointer"
             key={lesson.id}
-            onClick={() => navigate(`/lesson/${lesson.id}`)}
+            onClick={() => user ? navigate(`/lesson/${lesson.id}`) : navigate('/login')}
           >
             <div className="card-body border rounded-xl ">
               <h2 className="card-title">{lesson.title}</h2>
@@ -38,8 +40,8 @@ const LessonPage = () => {
          <div className="flex justify-center">
          <figure>
               <iframe
-                width="706"
-                height="397"
+                width="350"
+                height="250"
                 src="https://www.youtube.com/embed/ogqeb9TLO8A"
                 title="Introduction to Japanese Alphabets"
                 frameborder="0"
@@ -52,7 +54,7 @@ const LessonPage = () => {
          </div>
          <div className="text-center p-10">
 
-            <Link to={'/tutorial'} className="btn btn-info ">View More</Link>
+            <Link to={'/tutorial'} className="btn btn-wide btn-info text-white">View More</Link>
          </div>
       </div>
     </div>
