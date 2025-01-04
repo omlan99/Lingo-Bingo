@@ -16,18 +16,18 @@ const Success = () => {
 
         <div className="stat place-items-center">
           <div className="stat-title">Lesson</div>
-          <div className="stat-value text-secondary"><CountUp start={1000} end={4100} duration={2} separator=","></CountUp></div>
+          <div className="stat-value text-secondary"><CountUp start={1000} end={4100} duration={5} separator=","></CountUp></div>
           <div className="stat-desc text-secondary">↗︎ 40 (2%)</div>
         </div>
 
         <div className="stat place-items-center">
           <div className="stat-title">Tutorial</div>
-          <div className="stat-value"><CountUp start={600} end={2000} duration={2} separator=","></CountUp></div>
+          <div className="stat-value"><CountUp start={600} end={2000} duration={5} separator=","></CountUp></div>
           <div className="stat-desc">↗︎ 90 (14%)</div>
         </div>
         <div className="stat place-items-center">
           <div className="stat-title">Vocabullary</div>
-          <div className="stat-value"><CountUp start={1000} end={10000} duration={2} separator=","></CountUp></div>
+          <div className="stat-value"><CountUp start={1000} end={10000} duration={5} separator=","></CountUp></div>
           <div className="stat-desc">↗︎ 90 (14%)</div>
         </div>
         

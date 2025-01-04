@@ -30,7 +30,7 @@ const Home = () => {
       <div className=" bg-gray-900 rounded-xl">
         <div className="max-w-xl lg:max-w-lg mx-auto  p-5 mb-5 w-full text-center">
           <h2 className="text-4xl font-semibold tracking-tight text-white">
-            Subscribe to our newsletter
+            You can Register an account here
           </h2>
           <p className="mt-4 text-lg text-gray-300">
             Start your learning journey with us
