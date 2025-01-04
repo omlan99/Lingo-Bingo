@@ -1,8 +1,8 @@
 import React from "react";
-import img1 from "../assets/blackboard.jpg";
-import img2 from "../assets/learing in lamp.jpg";
-import img3 from "../assets/Pencil & eraser.jpg";
-import img4 from "../assets/represent.jpg";
+import img1 from "../assets/home-bg-4-1.jpg";
+import img2 from "../assets/home-bg-6.jpg";
+import img3 from "../assets/home-bg-7.jpg";
+import img4 from "../assets/home-bg-1-1.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -17,7 +17,7 @@ const Banner = () => {
       spaceBetween={30}
       loop={true}
       autoplay={{
-        delay: 2000,
+        delay: 5000,
         disableOnInteraction: false,
       }}
       navigation={{clickable : true}}
@@ -29,6 +29,7 @@ const Banner = () => {
       >
         <SwiperSlide >
           <img src={img1} alt="" className="mx-auto" />{" "}
+         
         </SwiperSlide>
         <SwiperSlide>
           <img src={img2} alt="" className="mx-auto" />{" "}

@@ -20,7 +20,7 @@ const Home = () => {
     <div>
       <div className="text-center, py-4 mb-4 ">
         <h1 className="text-center font-bold text-4xl animate__animated  animate__swing ">
-          Welcome {user?.displayName}
+          Welcome {user?.displayName} to LingoBingo
         </h1>
       </div>
       <Banner></Banner>
