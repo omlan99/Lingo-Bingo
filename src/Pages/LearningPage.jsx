@@ -5,9 +5,9 @@ const LearningPage = () => {
   const words = useLoaderData();
   const { no } = useParams();
   const [showWord, setShowWorld] = useState()
-  console.log(no, words[0].lesson_no);
+ 
   const filteredWords = words.filter((word) => word.lesson_no === Number(no));
-  console.log(filteredWords);
+
   const handleSay = (id) => {
     const clickedId = id;
     console.log(id)

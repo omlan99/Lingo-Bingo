@@ -14,7 +14,6 @@
 - **User Authentication**: Login, register, and manage your profile securely with Firebase.
 - **Audio Pronunciation**: Hear the correct pronunciation of words directly from the app.
 - **Tutorial Videos**: Embedded YouTube videos to enhance language learning.
-- **Word of the Day**: Daily vocabulary highlights to keep users engaged.
 - **Private Routes**: Secure access to lessons and tutorials only for logged-in users.
 
 ---
@@ -24,7 +23,7 @@
 - **Styling**: Tailwind CSS, Animate.css for animations
 - **Authentication**: Firebase Authentication
 - **Database**: Firebase Realtime Database
-- **Hosting**: Netlify / Firebase Hosting
+- **Hosting**: Netlify Hosting
 
 ---
 
