@@ -86,7 +86,7 @@ const Login = () => {
                 </label>
                 <div class="text-sm">
                   <button
-
+                    type="button"
                    onClick={handleForget}
                     class="font-semibold text-indigo-600 hover:text-indigo-500"
                   >
