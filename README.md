@@ -5,7 +5,7 @@
 ## 🚀 Project Overview  
 Lingo Bingo is a fun and interactive language learning application designed to help users expand their vocabulary and improve their communication skills in multiple languages. Whether you're a beginner or looking to refine your language skills, Lingo Bingo makes learning engaging and accessible.  
 
-🔗 **Live Project Link:** [Lingo Bingo](https://langclub.netlify.app)  
+🔗 **Live Project Link:** [Lingo Bingo](https://lingo-bingo-auth.web.app/)  
 
 ## 🛠️ Technologies Used  
 - **Frontend:** React.js, React Router, Axios  
